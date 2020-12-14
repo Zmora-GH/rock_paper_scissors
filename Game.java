@@ -56,7 +56,7 @@ class Game {
 	public static String getWinner(int cpuMove, int playerMove, int moveMax) {
 		int half = (moveMax - 1) / 2;
 		int temp = playerMove - cpuMove;
-		if ((temp < 0 && Math.abs(temp) > half) || (temp > 0 && Math.abs(temp) < half)) {
+		if ((temp < 0 && Math.abs(temp) > half) || (temp > 0 && Math.abs(temp) <= half)) {
 			return "You win!";
 		} else if (temp == 0) {
 			return "DRAW!";
@@ -66,14 +66,14 @@ class Game {
 
 	public static void printErrorMessage() {
 		System.out.println("Error: invalid parameters\n" +
-		"|-- Game rules: ---------------------------|\n" +
-		"|1. Odd number of moves                    |\n" +
-		"|2. Minimum of 3 moves                     |\n" +
-		"|3. Unique moves                           |\n" +
-		"|Examples:                                 |\n" +
-		"|...> ... rock paper scissors lizard Spock |\n" +
-		"|...> ... rock scissors paper              |\n" +
-		"|------------------------------------------|");
+		"--|  Game rules:  |-----------------------------------\n" +
+		"1. Odd number of moves\n" +
+		"2. Minimum of 3 moves\n" +
+		"3. Unique moves\n" +
+		"Examples:\n" +
+		"...>java -jar game.jar rock paper scissors lizard Spock\n" +
+		"...>java -jar game.jar rock scissors paper\n" +
+		"-----------------------------------------------------");
 	}
 
 	public static void printGameMenu(String items[]) {
